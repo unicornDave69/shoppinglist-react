@@ -10,6 +10,9 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { UserContext } from "../Providers/UserProvider";
 import ConfirmLeave from "./ConfirmLeaveListModal";
+import AddMemberButton from "./AddMemberButton";
+import RemoveMemberButton from "./DeleteMemberButton";
+import EditNameModal from "./EditListNameModal";
 
 function DetailItemTable() {
   const { data, handlerMap } = useContext(DetailContext);
@@ -52,7 +55,7 @@ function DetailItemTable() {
         <>
           <Button
             variant="secondary"
-            onClick={handlerMap.updateItemList}
+            onClick={EditNameModal}
             style={{
               borderRadius: "50%",
               width: "75px",
@@ -62,7 +65,7 @@ function DetailItemTable() {
           >
             Edit list name
           </Button>
-          <Button
+          <AddMemberButton
             variant="success"
             onClick={handlerMap.addMember}
             style={{
@@ -73,9 +76,9 @@ function DetailItemTable() {
             }}
           >
             Add member
-          </Button>
+          </AddMemberButton>
 
-          <Button
+          <RemoveMemberButton
             variant="warning"
             onClick={() => handleRemoveMember(loggedInUser)}
             style={{
@@ -86,7 +89,7 @@ function DetailItemTable() {
             }}
           >
             Remove member
-          </Button>
+          </RemoveMemberButton>
         </>
       )}
 
