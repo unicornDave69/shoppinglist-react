@@ -46,6 +46,9 @@ function DetailItemTable() {
     navigate("/");
   };
 
+  const handleShowModal = () => setShowModal(true);
+  const handleCloseModal = () => setShowModal(false);
+
   return (
     <>
       <BackToOverview />
